@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmHackz - Home</title>
+    <title>OmHackz - Portfolio</title>
     <meta name="title" content="Omhackz — Minecraft Packs, Tools & Coding Projects">
     <meta name="description" content="Discover Omhackz — a hub for Minecraft Bedrock resource packs, web tools, and open-source coding experiments. Fast, free, and community-driven.">
 
@@ -51,52 +51,60 @@
         </div>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="glitch" data-text="Om Sarkar">Om Sarkar</h1>
-                <p class="subtitle">Developer & Creator</p>
-                <div class="hero-description">
-                    <p>I build exceptional digital experiences with clean, efficient code and creative problem-solving.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="portfolio.html" class="btn primary">View My Work</a>
-                    <a href="downloads.html" class="btn secondary">Downloads</a>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/OmHackz" target="_blank" class="social-icon">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://youtube.com/OmHackz" target="_blank" class="social-icon">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
+        <section class="page-header">
+            <h1>My Portfolio</h1>
+            <p>A showcase of my projects and work</p>
         </section>
 
-        <section class="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Hello! I'm Om Sarkar, a passionate developer and digital creator. I specialize in building modern, responsive websites and applications with clean, efficient code.</p>
-                    <p>With a strong foundation in web technologies and a keen eye for design, I create digital experiences that are both functional and visually appealing.</p>
-                    <p>When I'm not coding, you can find me creating content, exploring new technologies, or contributing to open-source projects.</p>
+        <section class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="app">App Development</button>
+        </section>
+
+        <section class="portfolio-grid">
+            <div class="portfolio-item" data-category="app">
+                <div class="portfolio-image">
+                    <img src="images/est.png" alt="Mobile App">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Test My Speed</h3>
+                            <p>An App for Testing Latency to Vercel Servers.</p>
+                            <a href="https://test-my-speed.vercel.app/" target="_blank" class="btn small">View Project</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="skills">
-                    <h3>Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Responsive Design</span>
+            </div>
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="images/profile.png" alt="Portfolio Website">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Portfolio Website</h3>
+                            <p>The website you are currently viewing.</p>
+                            <a href="./" class="btn small">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="app">
+                <div class="portfolio-image">
+                    <img src="images/wapp.png" alt="Weather Now">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>Weather Now</h3>
+                            <p>A weather application with real-time data and forecasts</p>
+                            <a href="https://weather-now-om.vercel.app/" target="_blank" class="btn small">View Project</a>
+                        </div>
                     </div>
                 </div>
             </div>
