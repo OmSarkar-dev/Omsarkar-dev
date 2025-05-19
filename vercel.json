@@ -8,6 +8,22 @@
     {
       "source": "/download",
       "destination": "/downloads.html"
+    },
+    {
+      "source": "/roblox",
+      "destination": "/roblox.html"
+    },
+    {
+      "source": "/minecraft",
+      "destination": "/minecraft.html"
+    },
+    {
+      "source": "/github",
+      "destination": "/github.html"
+    },
+    {
+      "source": "/youtube",
+      "destination": "/youtube.html"
     }
   ],
   "headers": [
