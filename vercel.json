@@ -24,6 +24,22 @@
     {
       "source": "/youtube",
       "destination": "/youtube.html"
+    },
+    {
+      "source": "/yt",
+      "destination": "/youtube.html"
+    },
+    {
+      "source": "/mc",
+      "destination": "/minecraft.html"
+    },
+    {
+      "source": "/rbx",
+      "destination": "/roblox.html"
+    },
+    {
+      "source": "/git",
+      "destination": "/github.html"
     }
   ],
   "headers": [
