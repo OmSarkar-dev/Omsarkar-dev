@@ -1,0 +1,103 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Sarkar - Minecraft Profile</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      color: #000;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+    }
+    img.avatar {
+      width: 120px;
+      border: 1px solid;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    h1 {
+      font-size: 48px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    p {
+      font-size: 16px;
+      margin: 5px 0;
+      color: #666;
+    }
+    .circle {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="circle" style="width: 50px; height: 50px; top: 10%; left: 20%;"></div>
+  <div class="circle" style="width: 30px; height: 30px; top: 30%; left: 70%; animation-delay: 1s;"></div>
+  <div class="circle" style="width: 70px; height: 70px; top: 60%; left: 10%; animation-delay: 2s;"></div>
+  <div class="container">
+    <img src="https://yt3.googleusercontent.com/UKgMF1oTkWR94jvFyTuFKhuDF6LyuzR3krUw-qdl_NeDQhmkUu7ij6aurmBaVVJUjv3UkOOt=s160-c-k-c0x00ffffff-no-rj" alt="Omhackz Minecraft Face" class="avatar">
+    <h1>Omhackz</h1>
+    <p>Display Name: Om Sarkar</p>
+  </div>
+</body>
+</html>
